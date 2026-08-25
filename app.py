@@ -76,7 +76,7 @@ def money(x):
 init_db()
 
 st.set_page_config(page_title="Cash Posting & Balancing", page_icon="💵", layout="wide")
-st.title("💵 Cash Posting & Balancing")
+st.title("💵 Pogi ni Lord may Cash Posting & Balancing app")
 st.caption("Simple cash posting, batch balancing, payment tracking, and reconciliation app")
 
 menu = st.sidebar.radio("Navigation", [
