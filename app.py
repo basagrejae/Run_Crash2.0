@@ -64,7 +64,15 @@ else:
         )
 
 # Clear imported records
-    
+        if st.button("🗑️ Clear Detail & Batch Data"):
+
+            clear_tables()
+
+            st.success(
+                "detail_table and batch_table have been cleared."
+            )
+
+            st.rerun()
     if st.button("Balance Batch"):
 
         result = reconcile()
@@ -84,15 +92,6 @@ else:
             "Variance",
             f"${result['variance']:,.2f}"
         )
-        if st.button("🗑️ Clear Detail & Batch Data"):
-        
-                    clear_tables()
-        
-                    st.success(
-                        "detail_table and batch_table have been cleared."
-                    )
-        
-                    st.rerun()
 
         if result['variance'] == 0:
             st.success("BALANCED")
