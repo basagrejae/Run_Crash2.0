@@ -58,8 +58,7 @@ def reconcile():
 
     detail_total = pd.read_sql(
         """
-        SELECT SUM(amount)
-        total
+        SELECT SUM(amount) AS total
         FROM detail_table
         """,
         conn
@@ -67,22 +66,24 @@ def reconcile():
 
     batch_total = pd.read_sql(
         """
-        SELECT SUM(totals)
-        total
+        SELECT SUM(totals) AS total
         FROM batch_table
         """,
         conn
     )
 
-    detail_amount = detail_total.iloc[0,0]
-    batch_amount = batch_total.iloc[0,0]
+    detail_amount = detail_total.iloc[0]["total"]
+    batch_amount = batch_total.iloc[0]["total"]
+
+    detail_amount = 0 if detail_amount is None else float(detail_amount)
+    batch_amount = 0 if batch_amount is None else float(batch_amount)
 
     variance = detail_amount - batch_amount
 
     conn.close()
 
     return {
-        "detail_total":detail_amount,
-        "batch_total":batch_amount,
-        "variance":variance
+        "detail_total": detail_amount,
+        "batch_total": batch_amount,
+        "variance": variance
     }
