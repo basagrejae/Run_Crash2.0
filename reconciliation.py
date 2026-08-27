@@ -3,6 +3,19 @@ import pandas as pd
 
 DB = "cash_posting.db"
 
+import sqlite3
+
+DB = "cash_posting.db"
+
+def clear_tables():
+
+    conn = sqlite3.connect(DB)
+
+    conn.execute("DELETE FROM detail_table")
+    conn.execute("DELETE FROM batch_table")
+
+    conn.commit()
+    conn.close()
 
 def load_detail(file):
 

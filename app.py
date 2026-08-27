@@ -67,6 +67,7 @@ else:
 
         result = reconcile()
 
+
         st.metric(
             "Detail Total",
             f"${result['detail_total']:,.2f}"
@@ -86,3 +87,14 @@ else:
             st.success("BALANCED")
         else:
             st.error("OUT OF BALANCE")
+
+            # Clear imported records
+        if st.button("🗑️ Clear Detail & Batch Data"):
+
+            clear_tables()
+
+            st.success(
+                "detail_table and batch_table have been cleared."
+            )
+
+            st.rerun()
