@@ -87,3 +87,13 @@ def reconcile():
         "batch_total": batch_amount,
         "variance": variance
     }
+
+def clear_data():
+
+    conn = sqlite3.connect("cash_posting.db")
+
+    conn.execute("DELETE FROM detail_table")
+    conn.execute("DELETE FROM batch_table")
+
+    conn.commit()
+    conn.close()
