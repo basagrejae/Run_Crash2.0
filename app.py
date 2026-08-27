@@ -51,17 +51,6 @@ else:
         type="xlsx"
     )
 
-    # Clear imported records
-if st.button("🗑️ Clear Detail & Batch Data"):
-
-    clear_data()
-
-    st.success(
-        "detail_table and batch_table have been cleared."
-    )
-
-    st.rerun()
-
     if st.button("Import Files"):
 
         if detail_file:
@@ -73,6 +62,17 @@ if st.button("🗑️ Clear Detail & Batch Data"):
         st.success(
             "Files Imported"
         )
+
+        # Clear imported records
+    if st.button("🗑️ Clear Detail & Batch Data"):
+
+        clear_data()
+
+        st.success(
+            "detail_table and batch_table have been cleared."
+        )
+
+        st.rerun()
     
     if st.button("Balance Batch"):
 
