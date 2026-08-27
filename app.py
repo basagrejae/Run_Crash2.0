@@ -1,5 +1,5 @@
 import streamlit as st
-
+import sqlite3
 from auth import login
 from reconciliation import *
 
@@ -51,6 +51,17 @@ else:
         type="xlsx"
     )
 
+    # Clear imported records
+if st.button("🗑️ Clear Detail & Batch Data"):
+
+    clear_data()
+
+    st.success(
+        "detail_table and batch_table have been cleared."
+    )
+
+    st.rerun()
+
     if st.button("Import Files"):
 
         if detail_file:
@@ -62,21 +73,10 @@ else:
         st.success(
             "Files Imported"
         )
-
-# Clear imported records
-        if st.button("🗑️ Clear Detail & Batch Data"):
-
-            clear_tables()
-
-            st.success(
-                "detail_table and batch_table have been cleared."
-            )
-
-            st.rerun()
+    
     if st.button("Balance Batch"):
 
         result = reconcile()
-
 
         st.metric(
             "Detail Total",
