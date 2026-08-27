@@ -6,6 +6,8 @@ DB = "cash_posting.db"
 
 conn = sqlite3.connect(DB)
 
+st.title("Cash Posting & Balancing")
+
 # Create tables
 conn.execute("""
 CREATE TABLE IF NOT EXISTS detail_table(
@@ -118,8 +120,6 @@ if __name__ == "__main__":
     import_detail("detail_table.xlsx")
     import_batch("batch_table.xlsx")
     balance()
-
-st.title("Cash Posting & Balancing")
 
 detail_file = st.file_uploader(
     "Upload Detail Table",
