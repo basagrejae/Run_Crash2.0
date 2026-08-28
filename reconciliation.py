@@ -29,7 +29,7 @@ def load_detail(file):
         'entry_type' : df['Type of Entry'],
         'amount' : df['Amount'],
         'batch_number' : df['Batch Number'],
-        'note' : df['Note']
+        'note' : df['Note Closed']
     })
 
     data.to_sql(
