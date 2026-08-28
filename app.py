@@ -8,7 +8,7 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("Cash Posting & Balancing")
+st.title("Pa Balance Papa G!!!")
 
 if "role" not in st.session_state:
     st.session_state.role = None
