@@ -79,7 +79,7 @@ else:
         result = reconcile()
 
         st.metric(
-            "Detail Total",
+            "Deposit Log Total",
             f"${result['detail_total']:,.2f}"
         )
 
