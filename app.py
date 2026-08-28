@@ -42,12 +42,12 @@ else:
     )
 
     detail_file = st.file_uploader(
-        "Detail Table",
+        "Deposit Log File",
         type="xlsx"
     )
 
     batch_file = st.file_uploader(
-        "Batch Table",
+        "Batch File",
         type="xlsx"
     )
 
